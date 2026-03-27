@@ -26,3 +26,7 @@ df["total_amount"]= df["quantity"] *df["price"]
 
 print("\nAfter Adding total column")
 print(df[["quantity","price","total_amount"]].head())
+
+df['category'] = df['total_amount'].apply(
+    lambda x: 'High' if x > 500 else ('Medium' if x > 200 else 'Low')
+)
